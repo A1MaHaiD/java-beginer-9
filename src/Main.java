@@ -1,6 +1,19 @@
 public class Main {
     public static void main(String[] args) {
+        String primitiveString = "text";
+        String objectString = new String("text");
+        System.out.println(primitiveString);
+        System.out.println(objectString);
 
+        if (primitiveString == "text") {
+            System.out.println("primitiveString == text");
+        }
+        if (objectString == "text") {
+            System.out.println("objectString == text");
+        }
+        if (primitiveString == objectString) {
+            System.out.println("primitiveString == objectString");
+        }
     }
 }
 
