@@ -1,5 +1,45 @@
 public class Main {
     public static void main(String[] args) {
+//        stringObj();
+//        bufferBuilder();
+//        inserDeleteRevers();
+    }
+
+    private static void inserDeleteRevers() {
+        String initialString = "Hello World";
+        StringBuilder builder = new StringBuilder(initialString);
+        System.out.println(builder);
+
+        int insertIndex = builder.indexOf("Hello") + "Hello".length();
+        builder.insert(insertIndex, "Java");
+        System.out.println(builder);
+
+        int deleteStarts = builder.indexOf("World");
+        int deleteEnds = deleteStarts + "World".length();
+        builder.delete(deleteStarts, deleteEnds);
+        System.out.println(builder);
+
+        builder.reverse();
+        System.out.println(builder);
+    }
+
+    private static void bufferBuilder() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Hello");
+        builder.append(" World");
+        builder.append("!");
+        String builderResult = builder.toString();
+        System.out.println(builderResult);
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Hello");
+        buffer.append(" World");
+        buffer.append("!");
+        String bufferResult = buffer.toString();
+        System.out.println(bufferResult);
+    }
+
+    private static void stringObj() {
         String primitiveString = "text";
         String objectString = new String("text");
         System.out.println(primitiveString);
