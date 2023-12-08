@@ -2,10 +2,32 @@ public class Main {
     public static void main(String[] args) {
 //        stringObj();
 //        bufferBuilder();
-//        inserDeleteRevers();
+//        insertDeleteRevers();
+//        compareSpeedBuilderBuffer();
     }
 
-    private static void inserDeleteRevers() {
+    private static void compareSpeedBuilderBuffer() {
+        int iteration = 1_000_000;
+        StringBuilder builder = new StringBuilder();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < iteration; i++) {
+            builder.append("a");
+        }
+        long endTime = System.currentTimeMillis();
+        long durationBuilder = endTime - startTime;
+
+        StringBuffer buffer = new StringBuffer();
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < iteration; i++) {
+            buffer.append("a");
+        }
+        endTime = System.currentTimeMillis();
+        long durationBuffer = endTime - startTime;
+        System.out.println("Час для StringBuilder: " + durationBuilder);
+        System.out.println("Час для StringBuffer: " + durationBuffer);
+    }
+
+    private static void insertDeleteRevers() {
         String initialString = "Hello World";
         StringBuilder builder = new StringBuilder(initialString);
         System.out.println(builder);
