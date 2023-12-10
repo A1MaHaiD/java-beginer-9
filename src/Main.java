@@ -1,6 +1,99 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+//        stringObj();
+//        bufferBuilder();
+//        insertDeleteRevers();
+//        compareSpeedBuilderBuffer();
+//        replaceSplit();
+    }
 
+    private static void replaceSplit() {
+        /*
+        *   Read the text entered by the user and output each word individually, ignoring punctuation marks.
+        *   Each world should be in UPPER_CASE.
+        * */
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Your text: ");
+        String input = scanner.nextLine();
+        String [] words = input.split("\\s+");
+        for (String word: words){
+            word = word.replaceAll("[^a-zA-Z]","").toUpperCase();
+            System.out.println(word);
+        }
+    }
+
+    private static void compareSpeedBuilderBuffer() {
+        int iteration = 1_000_000;
+        StringBuilder builder = new StringBuilder();
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < iteration; i++) {
+            builder.append("a");
+        }
+        long endTime = System.currentTimeMillis();
+        long durationBuilder = endTime - startTime;
+
+        StringBuffer buffer = new StringBuffer();
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < iteration; i++) {
+            buffer.append("a");
+        }
+        endTime = System.currentTimeMillis();
+        long durationBuffer = endTime - startTime;
+        System.out.println("Час для StringBuilder: " + durationBuilder);
+        System.out.println("Час для StringBuffer: " + durationBuffer);
+    }
+
+    private static void insertDeleteRevers() {
+        String initialString = "Hello World";
+        StringBuilder builder = new StringBuilder(initialString);
+        System.out.println(builder);
+
+        int insertIndex = builder.indexOf("Hello") + "Hello".length();
+        builder.insert(insertIndex, "Java");
+        System.out.println(builder);
+
+        int deleteStarts = builder.indexOf("World");
+        int deleteEnds = deleteStarts + "World".length();
+        builder.delete(deleteStarts, deleteEnds);
+        System.out.println(builder);
+
+        builder.reverse();
+        System.out.println(builder);
+    }
+
+    private static void bufferBuilder() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Hello");
+        builder.append(" World");
+        builder.append("!");
+        String builderResult = builder.toString();
+        System.out.println(builderResult);
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Hello");
+        buffer.append(" World");
+        buffer.append("!");
+        String bufferResult = buffer.toString();
+        System.out.println(bufferResult);
+    }
+
+    private static void stringObj() {
+        String primitiveString = "text";
+        String objectString = new String("text");
+        System.out.println(primitiveString);
+        System.out.println(objectString);
+
+        if (primitiveString == "text") {
+            System.out.println("primitiveString == text");
+        }
+        if (objectString == "text") {
+            System.out.println("objectString == text");
+        }
+        if (primitiveString == objectString) {
+            System.out.println("primitiveString == objectString");
+        }
     }
 }
 
