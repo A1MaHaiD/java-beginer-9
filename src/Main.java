@@ -1,9 +1,27 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 //        stringObj();
 //        bufferBuilder();
 //        insertDeleteRevers();
 //        compareSpeedBuilderBuffer();
+//        replaceSplit();
+    }
+
+    private static void replaceSplit() {
+        /*
+        *   Read the text entered by the user and output each word individually, ignoring punctuation marks.
+        *   Each world should be in UPPER_CASE.
+        * */
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Your text: ");
+        String input = scanner.nextLine();
+        String [] words = input.split("\\s+");
+        for (String word: words){
+            word = word.replaceAll("[^a-zA-Z]","").toUpperCase();
+            System.out.println(word);
+        }
     }
 
     private static void compareSpeedBuilderBuffer() {
